@@ -1,18 +1,21 @@
 <h1>
   All Post
 </h1>
+<hr>
 
 <% @posts.each do |post| %>
-<div class="card">
-  <div class="card-header">
-    <h2>
+<div class="card text-white bg-info mb-5">
+  <div class="card-body">
+    <h2 class="text-center">
       <%= post.title %>
     </h2>
-  </div>
-  <div class="card-body">
-    <%= time_ago_in_words(post.created_at) %>
+    <hr>
+    <p class="badge badge-success"><%= time_ago_in_words(post.created_at) %></p>
     <br>
-    <%= post.body %>
+    <p>
+      <%= truncate(post.body, length:200)%>
+    </p>
+    <%= link_to "Show", post_path(post), class:"btn btn-secondary" %>
   </div>
 </div>
 <% end %>

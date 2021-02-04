@@ -10,8 +10,11 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.save
-    redirect_to @post
+    if @post.save
+      redirect_to @post
+    else
+      render "new"
+    end
   end
 
   def edit
@@ -21,8 +24,11 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post.update(post_params)
-    redirect_to @post
+    if @post.update(post_params)
+      redirect_to @post
+    else
+      render "edit"
+    end
   end
 
   def destroy

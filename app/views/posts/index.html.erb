@@ -4,7 +4,7 @@
 <hr>
 
 <% @posts.each do |post| %>
-<div class="card text-white bg-info mb-5">
+<div class="bg-light mb-5">
   <div class="card-body">
     <h2 class="text-center">
       <%= post.title %>
@@ -15,7 +15,7 @@
     <p>
       <%= truncate(post.body, length:200)%>
     </p>
-    <%= link_to "Show", post_path(post), class:"btn btn-secondary" %>
+    <%= link_to "Show", post_path(post), class:"btn btn-info btn-sm" %>
   </div>
 </div>
 <% end %>

@@ -1,0 +1,7 @@
+<article class="w-100 p-3 mt-3">
+    <h4> <strong> <%= comment.name %> </strong> </h4>
+    <p> <%= comment.body %> </p>
+    <p> <%= time_ago_in_words(comment.created_at ) %> Ago </p>
+    <%= link_to  "Delete", [comment.post, comment], method: :delete, data: {confirm: "are you sure?"}, class:"btn btn-danger btn-sm" %>
+    <hr>
+</article>

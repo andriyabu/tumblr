@@ -1,5 +1,5 @@
-<section class="d-flex justify-content-center p-5">
-  <article class="col bg-info p-5">
+<section class="row p-5">
+  <article class="col p-3 mb-3">
     <h1>
       <%= @post.title %>
     </h1>
@@ -7,9 +7,23 @@
     <p>
       <%= @post.body %>
     </p>
-    <%= link_to "Home", root_path, class:"btn btn-primary" %>
-    <%= link_to "Edit", edit_post_path(@post), class:"btn btn-warning" %>
-    <%= link_to "Delete", post_path(@post),method: :delete, data:{confirm:"are you sure?"}, class:"btn btn-danger" %>
+    <%= link_to "Home", root_path, class:"btn btn-primary btn-sm" %>
+    
+    <% if user_signed_in? %>
+      <%= link_to "Edit", edit_post_path(@post), class:"btn btn-warning btn-sm" %>
+      <%= link_to "Delete", post_path(@post),method: :delete, data:{confirm:"are you sure?"}, class:"btn btn-danger btn-sm" %>  
+    <% end %>
+    
+  </article>
+
+  <article class="w-100 bg-light p-3">
+    <h3> <%= @post.comments.count %> Comments </h3>
+    <%= render @post.comments%>
+  </article>
+
+   <article class="w-100 bg-light p-3 mt-3">
+    <h4 class="m-3"> Join Discussion: </h4>
+    <%= render 'comments/form' %>
   </article>
 
 </section>

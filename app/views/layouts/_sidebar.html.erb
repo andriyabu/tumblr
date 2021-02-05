@@ -6,8 +6,8 @@
   
   <% if user_signed_in? %>
     <p> Users : <%= current_user.email %> </p>
-    
     <%= link_to "Sign out", destroy_user_session_path, method: :delete, class:"btn btn-danger btn-sm btn-block"%>
+    <%= link_to  "About",  about_path, class:"btn btn-secondary btn-sm btn-block" %>
   <% else %>
     <%= link_to "Sign in", new_user_session_path, class:"btn btn-sm btn-success btn-block"%>
   <% end %>
